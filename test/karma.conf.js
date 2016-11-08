@@ -1,14 +1,6 @@
 const webpack = require("webpack");
 module.exports = function(config) {
   var webpackConfig = require("../webpack.config");
-  webpackConfig.module.postLoaders = [
-        // instrument only testing sources with Istanbul
-        {
-          test: /\.ts$/,
-          include: './src',
-          loader: 'istanbul-instrumenter'
-        }
-      ]
   webpackConfig.plugins = [
     new webpack.SourceMapDevToolPlugin({
       filename: null, // if no value is provided the sourcemap is inlined
